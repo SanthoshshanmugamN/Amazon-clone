@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click</button>
+    <script>
+        
+        // function a1(){
+        // // let    const a=10; // let and const block scope only accessing block
+        //     console.log(a);
+        // }
+        // console.log(a);
+        // a1();
+
+        // var a=10; // var accesing anywhere
+          
+        // function a1(){
+        //     console.log(a);
+           
+        // }
+        // console.log(a);
+        // a1();
+
+        // block lexical scope 
+
+    //     const a=10;
+    //     {
+    //         const a=20;
+    //          console.log(a);
+    //             const a=30;
+    //         {
+    //             console.log(a); // a which one nearest it will be accessing 
+                
+    //         }
+    //     }
+    // }/
+
+
+    // Hoisting 
+//     getName();  // any variable and functions top of the scope  before code executed it will assign -- hoisting 
+// console.log(x);
+// console.log(getName);
+//  let x=7;
+// getName(){
+// console.log("Santhosh")
+// }
+
+
+// closures in js
+// function x(){ // function bundle together of lexical scope it is closure
+//     let x=10;
+//     function y(){
+//         console.log(x)
+//     }
+//     return y;
+// }
+
+// var z=x();
+// console.log(z);
+// z()
+
+
+// call back 
+//  function x(y){
+//     console.log('x')
+//  }
+
+//  x(function(y){
+//     console.log('y')
+//  })
+
+// web API :
+// console.log("start")
+// setTimeout(function x(){  // this function x push to queue -- check event loop after -- callstack -- func complete -- pop call stack
+//  console.log("call back")
+// },3000)
+// console.log("end")
+
+// DOM API
+// console.log("start")
+// document.getElementById("btn").addEventListener("click",function cb(){
+//     console.log("call back")
+// })
+// console.log("end")
+
+// map 
+// const arr=[5,1,2,3,4]
+// const output = arr.map(function double(x){  // it creates a new array by calling a function of every element by original array and storing the result
+//     // in new array
+//     return x*2;
+
+// })
+// console.log(output)
+
+
+// filter
+// const arr1=[1,2,3,4,7]
+// const output1 =arr1.filter(function isOdd(x){ // it is also creates a new array filled with elements 
+//     // but a pass test or condition it will provided a function
+//     return x%2;
+// })
+// console.log(output1)
+ 
+// reduce
+// const arr1=[1,2,3,4,7]
+// const output1 =arr1.reduce(function isOdd(x){ // it is reduce the array it gives single value 
+//     return x%2;
+// })
+// console.log(output1)
+
+// promises API 
+// const p1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+// resolve("p1 success")
+//     },3000)
+// })
+// const p2 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+// reject("p2 Fail")
+//     },5000)
+// })
+// const p3 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+// resolve("p3 success")
+//     },2000)
+// })
+// Promise.all([p1,p2,p3])
+// .then((res)=>{
+//     console.log(res)
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
+
+
+// promise settled
+// const P1=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P1 success'),3000)
+//         })
+//         const P2=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>reject('P2 Fail'),1000)  
+//         })
+//         const P3=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P3 success'),2000)
+//         })
+//         Promise.allSettled([P1,P2,P3])
+//         .then((res)=>{
+//         console.log(res)
+//         })
+//         .catch((err)=>{
+//             console.error(err)
+//             })  
+
+
+
+// promise race -- it will give you which one is settled first
+// const P1=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P1 success'),3000)
+//         })
+//         const P2=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>reject('P2 Fail'),1000)  
+//         })
+//         const P3=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P3 success'),2000)
+//         })
+//         Promise.race([P1,P2,P3])
+//         .then((res)=>{
+//         console.log(res)
+//         })
+//         .catch((err)=>{
+//             console.error(err)
+//             })  
+
+
+// promise any -- it will wait for first success or resolved
+// const P1=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P1 success'),3000)
+//         })
+//         const P2=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>reject('P2 Fail'),1000)  
+//         })
+//         const P3=new  Promise((resolve,reject)=>{
+//         setTimeout(()=>resolve('P3 success'),2000)
+//         })
+//         Promise.any([P1,P2,P3])
+//         .then((res)=>{
+//         console.log(res)
+//         })
+//         .catch((err)=>{
+//             console.error(err)
+//             })  
+
+// this keyword 
+// 'use strict'
+//  console.log(this); // it is global object
+
+//  // this inside a function 
+//  function x(){
+//  console.log(this) // this inside function also global object but only Non strict mode 
+//  }
+//  x()
+
+// call 
+// let name ={ 
+//     firstName :  'santhosh',
+//     lastName :  'kumar'
+// }
+// let printFullName=function (hometown,state){
+//     console.log(this.firstName+' '+this.lastName+' '+hometown+' '+state)
+    
+// }
+// printFullName.call(name,'salem ',' tamilnadu') // call--argument passed as individual
+
+// let name2 ={ 
+//    firstName :  'Aakash',
+//     lastName :  'kumar'
+// }
+
+//      let printFullName2=function (hometown,state){
+//     console.log(this.firstName+' '+this.lastName+' '+hometown+' '+state)
+    
+//  }
+//  printFullName2.apply(name2,['erode ',' tamilnadu']) // apply--second argument passed as array 
+
+    </script>
+</body>
+</html>
